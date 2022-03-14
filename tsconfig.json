@@ -21,12 +21,16 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+
 }

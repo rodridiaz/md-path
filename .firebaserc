@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "mdpath-432e7"
+  },
+  "targets": {
+    "mdpath-432e7": {
+      "hosting": {
+        "md-path": [
+          "mdpath-432e7"
+        ]
+      }
+    }
+  }
+}

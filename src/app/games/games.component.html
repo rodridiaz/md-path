@@ -1,0 +1,50 @@
+<ng-container *ngIf="games$ | async as games; else loading">
+  <section>
+    <mat-card>
+      <mat-card-title>Mega Drive Path</mat-card-title>
+      <mat-card-subtitle>November 1989</mat-card-subtitle>
+      <mat-card-content>
+        <p>Below the Mega Drive Path Top Ten Games for November 1989</p>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let game of games; index as i" role="listitem">
+            <mat-icon svgIcon="numeric-{{ i + 1 }}-circle" mat-list-icon></mat-icon>
+            <mat-icon svgIcon="alpha-n" mat-list-icon></mat-icon>
+            <h3 matLine>{{ game.title }}</h3>
+            <p matLine>
+              <span>{{ game.score | number }} </span>
+            </p></mat-list-item
+          >
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section>
+    <mat-card>
+      <mat-card-content>
+        <p>Icon leyend</p>
+        <div></div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon svgIcon="numeric-3-circle" mat-list-icon></mat-icon>
+          <span>Position in the list</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon svgIcon="alpha-n" mat-list-icon></mat-icon>
+          <span>New into the list </span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon svgIcon="alpha-r" mat-list-icon></mat-icon>
+          <span>Repeat position in the list</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon svgIcon="numeric-9" mat-list-icon></mat-icon>
+          <span>Before position in the list</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </section>
+</ng-container>
+
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
