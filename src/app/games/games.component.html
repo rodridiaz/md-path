@@ -9,7 +9,7 @@
           <mat-list-item *ngFor="let game of gamesMonthData.top; index as i" role="listitem">
             <mat-icon svgIcon="numeric-{{ i + 1 }}-circle" mat-list-icon></mat-icon>
             <mat-icon
-              [color]="game.status === 'n' ? 'primary' : 'secondary'"
+              [color]="game.status === 'n' ? 'primary' : 'accent'"
               *ngIf="game.status && (game.status === 'n' || game.status === 'r')"
               svgIcon="alpha-{{ game.status }}-box"
               mat-list-icon
@@ -42,7 +42,7 @@
           <mat-icon color="primary" svgIcon="alpha-n-box" mat-list-icon></mat-icon>
           <span>New into the list </span>
         </div>
-        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <div color="accent" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
           <mat-icon svgIcon="alpha-r-box" mat-list-icon></mat-icon>
           <span>Repeat position in the list</span>
         </div>
@@ -56,5 +56,7 @@
 </ng-container>
 
 <ng-template #loading>
-  <mat-spinner></mat-spinner>
+  <div class="spinner-wrapper">
+    <mat-spinner [diameter]="50" color="warn"></mat-spinner>
+  </div>
 </ng-template>

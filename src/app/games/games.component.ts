@@ -8,7 +8,7 @@ import { GamesService } from "./games.service";
   selector: "app-games",
   templateUrl: "./games.component.html",
   providers: [GamesService],
-  styleUrls: ["./games.component.css"],
+  styleUrls: ["./games.component.scss"],
 })
 export class GamesComponent implements OnInit {
   gamesMonthData$: Observable<GamesMonthData>;
