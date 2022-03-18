@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { isValid, differenceInCalendarMonths, formatISO, add } from "date-fns";
 import { catchError, Observable, Subject, take } from "rxjs";
 import { HandleError, HttpErrorHandler } from "../http-error-handler-service";
-import { Game } from "./games";
+import { Game, GamesMonthData } from "./games";
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class GamesService {
-  ganmesUrl = "https://infinite-stream-37403.herokuapp.com/games/top"; // URL to web api
+  ganmesUrl = "https://infinite-stream-37403.herokuapp.com/mega-drive-path-games"; // URL to web api
   private handleError: HandleError;
 
   constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {
@@ -23,19 +23,19 @@ export class GamesService {
 
   /** GET games from the server */
   getGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(this.ganmesUrl).pipe(catchError(this.handleError("getHeroes", [])));
+    return this.http.get<Game[]>(this.ganmesUrl).pipe(catchError(this.handleError("getGames", [])));
   }
 
   /* GET top games by date */
-  getTopByDate(date: string): Observable<Game[]> {
+  getGamesDataByDate(date: string): Observable<GamesMonthData> {
     date = date.trim();
 
     // Add safe, URL encoded search parameter if there is a search date
     const options = date ? { params: new HttpParams().set("date", date) } : {};
 
     return this.http
-      .get<Game[]>(this.ganmesUrl, options)
-      .pipe(catchError(this.handleError<Game[]>("getTopByDate", [])), take(1));
+      .get<GamesMonthData>(this.ganmesUrl, options)
+      .pipe(catchError(this.handleError<GamesMonthData>("getGamesDataByDate", undefined)), take(1));
   }
 
   getMDPathDateByCurrentDate() {

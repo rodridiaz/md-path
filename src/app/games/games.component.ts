@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { formatISO } from "date-fns";
-import { Observable } from "rxjs";
-import { Game } from "./games";
+import { format, formatISO } from "date-fns";
+import { map, Observable, tap } from "rxjs";
+import { Game, GamesMonthData, GameStatus } from "./games";
 import { GamesService } from "./games.service";
 
 @Component({
@@ -11,18 +11,43 @@ import { GamesService } from "./games.service";
   styleUrls: ["./games.component.css"],
 })
 export class GamesComponent implements OnInit {
-  games$: Observable<Game[]>;
+  gamesMonthData$: Observable<GamesMonthData>;
+  todayFormattedDate: string;
 
   constructor(private gamesService: GamesService) {}
 
   ngOnInit() {
-    const mdCurrentDate = formatISO(new Date(this.gamesService.getMDPathDateByCurrentDate()), {
+    const mdCurrentDate = this.gamesService.getMDPathDateByCurrentDate();
+    const mdCurrentDateFormatted = formatISO(new Date(this.gamesService.getMDPathDateByCurrentDate()), {
       representation: "date",
     });
-    this.games$ = this.getTopGames(mdCurrentDate);
+    this.gamesMonthData$ = this.getGamesDataByDate(mdCurrentDateFormatted).pipe(
+      map((gamesMonthData: GamesMonthData) => ({
+        ...gamesMonthData,
+        top: gamesMonthData.top.map((game) => ({ ...game, status: this.getGameStatus(game, gamesMonthData) })),
+      }))
+    );
+    this.todayFormattedDate = format(new Date(mdCurrentDate), "MMMM, y");
   }
 
-  getTopGames(date: string) {
-    return this.gamesService.getTopByDate(date);
+  getGamesDataByDate(date: string) {
+    return this.gamesService.getGamesDataByDate(date);
+  }
+
+  getGameStatus(currentGame: Game, gamesMonthData: GamesMonthData) {
+    let status;
+
+    const isAddition = gamesMonthData.additions?.some((game) => game.title === currentGame.title);
+
+    if (isAddition) {
+      status = GameStatus.new;
+    } else {
+      const oldPosition = gamesMonthData.oldTop?.findIndex((game) => game.title === currentGame.title) + 1;
+      const currentPosition = gamesMonthData.top?.findIndex((game) => game.title === currentGame.title) + 1;
+
+      status = oldPosition === currentPosition ? GameStatus.repeat : oldPosition;
+    }
+
+    return status;
   }
 }

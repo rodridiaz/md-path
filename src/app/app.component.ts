@@ -28,5 +28,41 @@ export class AppComponent {
       `alpha-r`,
       this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-r.svg`)
     );
+
+    this.matIconRegistry.addSvgIcon(
+      `alpha-n-box`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-n-box.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+      `alpha-r-box`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-r-box.svg`)
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      `alpha-n-box-outline`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-n-box-outline.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+      `alpha-r-box-outline`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-r-box-outline.svg`)
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      `alpha-n-circle`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-n-circle.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+      `alpha-r-circle`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-r-circle.svg`)
+    );
+
+    this.matIconRegistry.addSvgIcon(
+      `alpha-n-circle-outline`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-n-circle-outline.svg`)
+    );
+    this.matIconRegistry.addSvgIcon(
+      `alpha-r-circle-outline`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-r-circle-outline.svg`)
+    );
   }
 }
