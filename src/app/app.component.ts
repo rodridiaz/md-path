@@ -64,5 +64,10 @@ export class AppComponent {
       `alpha-r-circle-outline`,
       this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/alpha-r-circle-outline.svg`)
     );
+
+    this.matIconRegistry.addSvgIcon(
+      `logout-variant`,
+      this.domSanitizer.bypassSecurityTrustResourceUrl(`../assets/icons/logout-variant.svg`)
+    );
   }
 }

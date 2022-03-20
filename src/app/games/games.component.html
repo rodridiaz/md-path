@@ -32,6 +32,23 @@
   <section *ngIf="gamesMonthData.oldTop?.length">
     <mat-card>
       <mat-card-content>
+        <p>Games leaving the Top this month</p>
+        <mat-list role="list">
+          <mat-list-item *ngFor="let game of gamesMonthData.exclusions; index as i" role="listitem">
+            <mat-icon color="warn" svgIcon="logout-variant" mat-list-icon></mat-icon>
+            <h3 matLine>{{ game.title }}</h3>
+            <p matLine>
+              <span>{{ game.score | number }} </span>
+            </p></mat-list-item
+          >
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </section>
+
+  <section *ngIf="gamesMonthData.oldTop?.length">
+    <mat-card>
+      <mat-card-content>
         <p>Icon leyend</p>
         <div></div>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
@@ -40,15 +57,19 @@
         </div>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
           <mat-icon color="primary" svgIcon="alpha-n-box" mat-list-icon></mat-icon>
-          <span>New into the list </span>
+          <span>New to the list </span>
         </div>
         <div color="accent" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
           <mat-icon svgIcon="alpha-r-box" mat-list-icon></mat-icon>
-          <span>Repeat position in the list</span>
+          <span>Repeating position in the list</span>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
           <mat-icon svgIcon="numeric-9" mat-list-icon></mat-icon>
-          <span>Before position in the list</span>
+          <span>Position on last month's list</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon color="warn" svgIcon="logout-variant" mat-list-icon></mat-icon>
+          <span>Leaving the list</span>
         </div>
       </mat-card-content>
     </mat-card>
