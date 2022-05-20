@@ -3,3 +3,8 @@
   place-content: center;
   height: calc(100vh - 20px);
 }
+
+.header-image {
+  background-image: url('../../assets/images/shinobi.jpeg');
+  background-size: cover;
+}

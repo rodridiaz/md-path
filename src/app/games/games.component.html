@@ -1,10 +1,14 @@
 <ng-container *ngIf="gamesMonthData$ | async as gamesMonthData; else loading">
   <section>
     <mat-card>
-      <mat-card-title>Mega Drive Path</mat-card-title>
-      <mat-card-subtitle>{{ todayFormattedDate }}</mat-card-subtitle>
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title>Mega Drive Path</mat-card-title>
+        <mat-card-subtitle>{{ todayFormattedDate }}</mat-card-subtitle>
+      </mat-card-header>
+      <!-- <img mat-card-image src="../../assets/images/revenge-of-shinobi-artwork.1920x350.jpg" /> -->
       <mat-card-content>
-        <p>Below the Mega Drive Path Top Ten Games for {{ todayFormattedDate }}</p>
+        <p>Below the Mega Drive Path Top 10 Games for {{ todayFormattedDate }}</p>
         <mat-list role="list">
           <mat-list-item *ngFor="let game of gamesMonthData.top; index as i" role="listitem">
             <mat-icon svgIcon="numeric-{{ i + 1 }}-circle" mat-list-icon></mat-icon>
