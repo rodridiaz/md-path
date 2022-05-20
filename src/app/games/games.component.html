@@ -19,7 +19,13 @@
               svgIcon="numeric-{{ game.status }}"
               mat-list-icon
             ></mat-icon>
-            <h3 matLine>{{ game.title }}</h3>
+            <h3 matLine fxLayout="row" fxLayoutGap="8px">
+              <span>{{ game.title }}</span>
+
+              <a mat-icon-button aria-label="Example icon button with a home icon" [href]="game.link" target="_blank">
+                <mat-icon color="accent">open_in_new</mat-icon>
+              </a>
+            </h3>
             <p matLine>
               <span>{{ game.score | number }} </span>
             </p></mat-list-item
@@ -59,8 +65,8 @@
           <mat-icon color="primary" svgIcon="alpha-n-box" mat-list-icon></mat-icon>
           <span>New to the list </span>
         </div>
-        <div color="accent" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon svgIcon="alpha-r-box" mat-list-icon></mat-icon>
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon color="accent" svgIcon="alpha-r-box" mat-list-icon></mat-icon>
           <span>Repeating position in the list</span>
         </div>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">

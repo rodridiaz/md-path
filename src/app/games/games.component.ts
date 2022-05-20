@@ -24,7 +24,7 @@ export class GamesComponent implements OnInit {
     this.gamesMonthData$ = this.getGamesDataByDate(mdCurrentDateFormatted).pipe(
       map((gamesMonthData: GamesMonthData) => ({
         ...gamesMonthData,
-        top: gamesMonthData.top.map((game) => ({ ...game, status: this.getGameStatus(game, gamesMonthData) })),
+        top: gamesMonthData?.top?.map((game) => ({ ...game, status: this.getGameStatus(game, gamesMonthData) })),
       }))
     );
     this.todayFormattedDate = format(new Date(mdCurrentDate), "MMMM, y");
