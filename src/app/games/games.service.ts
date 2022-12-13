@@ -14,7 +14,7 @@ const httpOptions = {
 
 @Injectable()
 export class GamesService {
-  ganmesUrl = "https://infinite-stream-37403.herokuapp.com/mega-drive-path-games"; // URL to web api
+  ganmesUrl = "https://md-path-api.vercel.app/mega-drive-path-games"; // URL to web api
   private handleError: HandleError;
 
   constructor(private http: HttpClient, httpErrorHandler: HttpErrorHandler) {

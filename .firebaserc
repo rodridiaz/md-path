@@ -1,12 +1,12 @@
 {
   "projects": {
-    "default": "mdpath-432e7"
+    "default": "md-path"
   },
   "targets": {
-    "mdpath-432e7": {
+    "md-path": {
       "hosting": {
         "md-path": [
-          "mdpath-432e7"
+          "md-path-1990"
         ]
       }
     }

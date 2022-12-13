@@ -22,14 +22,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/theming/sega-palette.scss",
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/theming/sega-palette.scss", "src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -90,14 +84,8 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/theming/sega-palette.scss",
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/theming/sega-palette.scss", "src/styles.scss"],
             "scripts": []
           }
         },
@@ -107,8 +95,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "md-path:build:production",
-            "firebaseProject": "mdpath-432e7",
-            "firebaseHostingSite": "mdpath-432e7"
+            "firebaseProject": "md-path",
+            "firebaseHostingSite": "md-path-1990"
           }
         }
       }
