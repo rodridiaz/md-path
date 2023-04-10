@@ -17,8 +17,9 @@ export class GamesComponent implements OnInit {
   constructor(private gamesService: GamesService) {}
 
   ngOnInit() {
-    const mdCurrentDate = this.gamesService.getMDPathDateByCurrentDate();
-    const mdCurrentDateFormatted = formatISO(new Date(this.gamesService.getMDPathDateByCurrentDate()), {
+    const fixedDate= "2023-04-01"
+    const mdCurrentDate = this.gamesService.getMDPathDateByFixedDate(fixedDate);
+    const mdCurrentDateFormatted = formatISO(new Date(mdCurrentDate), {
       representation: "date",
     });
     this.gamesMonthData$ = this.getGamesDataByDate(mdCurrentDateFormatted).pipe(

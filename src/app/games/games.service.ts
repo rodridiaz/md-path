@@ -49,4 +49,16 @@ export class GamesService {
 
     return equivalentMDMonth;
   }
+
+  getMDPathDateByFixedDate(date: string) {
+    const initMDPathDate = "1989-11-01";
+    const initRealDate = "2022-03-01";
+
+    const fixedDate = new Date(date);
+    const realMDMonthsDiff = differenceInCalendarMonths(fixedDate, new Date(initRealDate));
+
+    const equivalentMDMonth = add(new Date(initMDPathDate), { months: realMDMonthsDiff });
+
+    return equivalentMDMonth;
+  }
 }
