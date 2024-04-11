@@ -1,4 +1,5 @@
 export interface Game {
+  id: number;
   score: number;
   originalScore: number;
   title: string;

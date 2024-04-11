@@ -39,8 +39,8 @@ export class GamesService {
   }
 
   getMDPathDateByCurrentDate() {
-    const initMDPathDate = "1989-11-01";
-    const initRealDate = "2022-03-01";
+    const initMDPathDate = "1988-10-01";
+    const initRealDate = "2023-10-01";
 
     const today = new Date();
     const realMDMonthsDiff = differenceInCalendarMonths(today, new Date(initRealDate));
@@ -51,8 +51,8 @@ export class GamesService {
   }
 
   getMDPathDateByFixedDate(date: string) {
-    const initMDPathDate = "1989-11-01";
-    const initRealDate = "2022-03-01";
+    const initMDPathDate = "1988-10-01";
+    const initRealDate = "2023-10-01";
 
     const fixedDate = new Date(date);
     const realMDMonthsDiff = differenceInCalendarMonths(fixedDate, new Date(initRealDate));

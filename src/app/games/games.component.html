@@ -42,7 +42,7 @@
     <mat-card>
       <mat-card-content>
         <p>Games leaving the Top this month</p>
-        <mat-list role="list">
+        <mat-list role="list" *ngIf="gamesMonthData?.exclusions?.length; else emptyList">
           <mat-list-item *ngFor="let game of gamesMonthData.exclusions; index as i" role="listitem">
             <mat-icon color="warn" svgIcon="logout-variant" mat-list-icon></mat-icon>
             <h3 matLine fxLayout="row" fxLayoutGap="8px">
@@ -126,5 +126,10 @@
 <ng-template #loading>
   <div class="spinner-wrapper">
     <mat-spinner [diameter]="50" color="warn"></mat-spinner>
+  </div>
+</ng-template>
+<ng-template #emptyList>
+  <div>
+    Empty list
   </div>
 </ng-template>
